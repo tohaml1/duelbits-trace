@@ -1,0 +1,38 @@
+chain,address,role,label,evidence
+ethereum,0x014435b1e39945cf4f5f0c3cbb5833195a95cc9b,victim,Duelbits hot wallet (ETH),"named in CoinDesk 2026-09-24; 259k txs; sent 836 ETH + 593,430.32 USDT + 96,804.68 USDC + 31,515 DAI + 12.398B SHIB to attacker 09:00-09:02 UTC"
+bnb,0x014435b1e39945cf4f5f0c3cbb5833195a95cc9b,victim,Duelbits hot wallet (BNB Chain) - same address as ETH,nonce 63798 on BNB Chain via RPC; same key controls both chains
+tron,THqFmhAPcdHECH3wmrpZv4MWAB2v9TY1oN,victim,Duelbits hot wallet (Tron),"sent 476,058.087528 USDT (08:58:36) + 192,470 TRX (08:59:27) to attacker"
+ethereum,0xa77e24fe29d16e051e487ef4ea7b056cb05aef76,attacker,A1 - first receiving address / swap hub,"received victim ETH-chain assets; Relay/deBridge recipient; same address used as deBridge maker on BNB Chain"
+bnb,0xa77e24fe29d16e051e487ef4ea7b056cb05aef76,attacker,A1 on BNB Chain,created 7 deBridge orders BNB->ETH (263.58 ETH-BEP20 given)
+tron,TAvraZZFCZbDSZoyqWWRRsBkFgZqKaCGbK,attacker,T1 - Tron receiving address,16 Relay deposits (1,589,000 TRX) -> A1 on Ethereum
+solana,A3EBrhMBEGzcPgmbwywSPhW39G6PFGrorU8ib99T6yKw,attacker,S1 - Solana bridging address,"Relay: 3,528.60 SOL -> A2; deBridge: 507,205.81 USDC -> A2"
+ethereum,0xb5909f3539fe2733866bbde2d3ffca5c6292ebbf,attacker,A2 - Solana landing address,received Solana-origin ETH; forwarded 402.618608 ETH to A3
+ethereum,0x2a8d93c0096db4f68afd8e007dee9cdcd4180e62,attacker,A3 - pass-through,402.618481 ETH -> A4
+ethereum,0x81f8c15a6ddf2e4606949d9c84294842f3b175e2,attacker,A3b - pass-through,60.000583 ETH in from high-volume EOA 0xf30ba13e; -> A4
+ethereum,0x7c7514533d10dc00bbc5538ffa6c57e0cba5e44a,attacker,A3c - pass-through,14.811714 ETH -> A4
+ethereum,0x922adc930ceeaeda74ad9ca86474a753f7d8cd23,attacker,A4 - feeder to consolidation,476.53 ETH -> C
+ethereum,0x181a638038a4bd75c207d080de83e217f8e8a1d7,attacker,A5 - feeder to consolidation,"1,587.88 ETH from A1 + DAI swap; 1,601.17 ETH -> C"
+ethereum,0x6761c9b15815f4051773ede39b42b95bddb3ef1c,attacker,A6 - feeder to consolidation,"253.76 ETH from Chainflip Vault = BTC leg (Chainflip swaps 1843274/1843322/1843983); 255.04 ETH -> C"
+ethereum,0x8db9d7f0a03d212c566ca80c66e294cecc20c306,attacker,C - consolidation address,"named in CoinDesk; received 2,234.70 ETH on 2026-09-24; balance 1,011.55 ETH at block 26113697"
+ethereum,0xa31bb1fdf3409ce863bf646b69e6013ca74c38e3,attacker,M1 - mixer staging,"662 ETH in from C, 551.99 returned, 111.1 -> M2"
+ethereum,0xadb82eef7baa2feaebe64f88577c06f803a2c578,attacker,M2 - Tornado depositor,110 ETH -> Tornado Cash Router (2026-09-26/27)
+ethereum,0x6495afaeb766e59f3b725e6ef6e5622b44b272c3,attacker,M3 - mixer staging,"1,252 ETH in from C; 9.958 ETH in from Tornado Cash 10 ETH pool; 1,261.958 -> M4"
+ethereum,0x56644f6a348a142d38fb7dde2e942c9ef03d09fc,attacker,M4 - Tornado depositor,"1,260 ETH -> Tornado Cash Router in 18 deposits (12x100 + 6x10), 2026-09-28 08:21-08:39 UTC"
+ethereum,0xb92fe925dc43a0ecde6c8b1a2709c170ec4fff4f,service,Relay RelayRouterV3,explorer contract name
+ethereum,0xf70da97812cb96acdf810712aa562db8dfa3dbef,service,Relay solver (fills),Relay API outTxs name this address as filler for Tron->ETH requests
+ethereum,0xe7351fd770a37282b91d153ee690b63579d6dd7f,service,deBridge DlnDestination (proxy),implementation DlnDestination
+ethereum,0x663dc15d3c1ac63ff12e45ab68fea3f0a883c251,service,deBridge DeBridgeRouter (proxy),implementation DeBridgeRouter; used for USDC/SHIB -> ETH swaps
+ethereum,0x74de5d4fcbf63e00296fd95d33236b9794016631,service,DEX spender contract (DAI -> ETH),explorer contract name 'Spender'
+ethereum,0xd90e2f925da726b50c4ed8d0fb90ad053324f31b,service,Tornado Cash Router,explorer contract name TornadoRouter
+ethereum,0x910cbd523d972eb0a6f4cae4618ad62622b39dbf,service,Tornado Cash 10 ETH pool,explorer contract name TornadoCash_eth
+ethereum,0xd37bbe5744d730a1d98d8dc97c42f0ca46ad7146,service,THORChain Router,12.448 ETH in to A1 on 2026-09-30 (source asset not resolved)
+ethereum,0xf5e10380213880111522dd0efd3dbb45b9f62bcc,service,Chainflip Vault,"verified source (ICFReceiver, KeyManager, AggKeyNonceConsumer); egress allBatch txs match Chainflip explorer swaps"
+bitcoin,bc1qhtu84kz3y94lvgl2t05zk84tqh57grvd82zvcl,attacker,B1 - Bitcoin receiving address,"received 8.09987887 BTC in 121-input sweep 159e2747...; refund address on Chainflip swap 1843274"
+bitcoin,bc1pt685ucxlq8u079fc6kr0gppmx82336u8kmlchxz09zp76es99sys78ch24,service,Chainflip deposit channel (swap 1843274),2.00 BTC deposited 09:55:39 UTC
+bitcoin,bc1qp2tylak9jdskdkzj5crqpwcdsjmwgj2xm4apcf,attacker,B2 - BTC intermediate,6.09987734 BTC change from B1; source of the 3.00 + 3.10 BTC Chainflip deposits (hops not itemised)
+ethereum,0xf30ba13e4b04ce5dc4d254ae5fa95477800f0eb0,service,unidentified high-volume EOA,"9,600+ ETH in from 60+ counterparties in 2 days; likely exchange / OTC / instant-swap hot wallet"
+ethereum,0x3f3ee0a9cac2d01db44001eca3e8382fbe40207b,service,unidentified high-volume EOA,"219k txs; 25.57 ETH to A1 on 2026-09-25"
+ethereum,0x8dbb237e56532c8f453f4945b7b786d7ef20c306,poisoner,address-poisoning contract (lookalike of C),proxy -> implementation 0xe6B97aA1490c93c28A14D86C13C9dc9c950643ed
+ethereum,0xa31b571d46237320c36d64a8d6702ccf574c38e3,poisoner,address-poisoning contract (lookalike of M1),same implementation 0xe6B97aA1...43ed
+ethereum,0x649bd6db8f2c051453da2ef65841e974bab272c3,poisoner,address-poisoning contract (lookalike of M3),same implementation 0xe6B97aA1...43ed
+tron,TJgipP5mMZnXxgVXyLDkgzkdqNpt2Z91oN,poisoner,lookalike of Duelbits Tron wallet (suffix ...1oN),dust TRX sent to T1 at 09:01:36

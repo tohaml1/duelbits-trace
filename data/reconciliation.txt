@@ -1,0 +1,18 @@
+ETH-chain drain  victim->A1  ETH   836.000000
+ETH-chain drain  victim->A1  USDT  593,430.319285
+ETH-chain drain  victim->A1  USDC  96,804.683231
+ETH-chain drain  victim->A1  DAI   31,515.000000
+ETH-chain drain  victim->A1  SHIB  12,397,915,453.399209
+A1 ETH in 1,625.912432 / out 1,625.891065 / diff 0.021367 (gas + dust)
+Tron drain  USDT 476,058.087528  TRX 192,470.000000
+Tron -> Relay deposits n=16 TRX 1,589,000
+bridge bnb     via deBridge n=7   ETH  263.583696 -> 263.469265 ETH
+bridge solana  via Relay    n=7   SOL  3,528.604499 -> 149.731631 ETH
+bridge solana  via deBridge n=4   USDC 675,244.800099 -> 252.886991 ETH
+bridge tron    via Relay    n=16  TRX  1,589,000.000000 -> 201.921610 ETH
+A2 (Solana landing) ETH in 402.618621 / out 402.618608
+C inflow on 2026-09-24 2,234.698895 ETH; C in 2,925.652550 out 1,914.100000; balance now 1,011.552248
+Tornado Cash deposits n=20 total 1,370.000000 ETH
+BNB leg spent by A1 into deBridge: BNB 208.995513, USDT 552,761.728670
+USDT across ETH+Tron+BNB = 1,622,250.14 (press: $1.62M USDT)
+BTC sweep 159e27475543… inputs=121 -> attacker 8.09987887 BTC
