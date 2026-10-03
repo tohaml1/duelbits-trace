@@ -1,0 +1,8 @@
+data/raw/
+work/
+out/
+__pycache__/
+*.pyc
+t.json
+conn.txt
+*.log
