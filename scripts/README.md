@@ -1,0 +1,1 @@
+Scripts behind the report. No API keys needed. `chain.py` is the cached explorer/bridge client; `verify_totals.py` recomputes every headline number. See the main README "Reproduce" section for run order.
